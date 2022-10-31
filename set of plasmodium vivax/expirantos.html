@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+        <title>title of my sex tape</title>
+    
+    <!-- Pyscript -->
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <!--<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />-->
+    
+    <!-- bootstrap for styling , Pyscript can also be used for styling instead of bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <style>
+    
+    body {
+        background-color: slateblue;
+        padding-top: 55px;
+        min-height: 100vh;
+        margin:0;
+        display:flex;
+        flex-direction:column;
+      }
+    </style>  
+    
+</head>
+<body>
+
+<!-- write your Python code in py-script tag -->
+<py-script>
+    from js import document,alert
+
+def angle(cry):
+   hour=int(cry[0:2])
+   min=int(cry[2:])
+   hour=hour+min/60
+   angle= (hour - min/5)*30
+   angle= abs(angle)
+   return str(angle) +" degrees"
+        
+    
+def calculate(*ags, **kws):
+    
+    clock = document.getElementById('clock').value;
+    result= angle(clock)
+    pyscript.write("angle",result)    
+</py-script>    
+
+    <div class="container">
+        
+        <h1 class="text-center">
+            angle around biatch
+        </h1>
+        <br />
+        <p><h3>Enter the time</h3>
+        <input id="clock" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Enter the time in this form, if 5:30- input 0530" /></p>
+        <center>
+            <button id="calculate" type="submit"  class="btn btn-info" pys-onClick="calculate">Calculate</button>
+
+        </center>
+        
+        <p>
+        <h4>Result:</h4>
+        <textarea id="angle" class="form-control" rows="2" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Result"></textarea></p>
+    
+        
+    </div>    
+    
+    </body>
+    </html>   
